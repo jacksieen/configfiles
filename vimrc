@@ -81,7 +81,8 @@ autocmd filetype c,cpp,java,css,javascript,php imap <buffer> ;/ /*  */<left><lef
 " program test
 """"""""""""""""""""""
 if filereadable("Makefile")
-	map <F9> :!make<cr>
+	map <F9> :!make -s<cr>
+    map <F11> :!make -n<cr>
 else
 	autocmd filetype c map <buffer> <F9> :!gcc -lm -g % -Wall -o %:r<cr>
 	autocmd filetype cpp map <buffer> <F9> :!g++ -lm -g % -Wall -o %:r<cr>
