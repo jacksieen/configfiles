@@ -1,9 +1,9 @@
 " vimrc ~/.vimrc
 " Author:	Lykling
-" Version:	2.0.1
-" Update:	Fri Jan 25 01:51:17 CST 2013
+" Version:	3.0.0
 " Usage: 	copy this file to home directory
-" Notes:	Modified a little by jacksieen, 2nd, Sept, 2013
+" Notes:	Modified by jacksieen
+" Update:	Thu Sep 10 21:04 CST 2015
 
 autocmd! BufWritePost *.vimrc source $HOME/.vimrc
 
@@ -39,7 +39,11 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
+" Powerline Plugin
 Plugin 'https://github.com/Lokaltog/vim-powerline.git'
+" Indent Guides
+Plugin 'https://github.com/nathanaelkane/vim-indent-guides'
+Plugin 'http://github.com/tpope/vim-pathogen'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -83,10 +87,10 @@ set hls is
 set incsearch
 set ru
 
-set tabstop=4
-set softtabstop=4
-set cindent shiftwidth=4
-set autoindent shiftwidth=4
+"set tabstop=4
+set softtabstop=2
+set cindent shiftwidth=2
+set autoindent shiftwidth=2
 "set mouse=a
 set mouse=h
 set backspace=2
@@ -154,7 +158,9 @@ map <c-p> :tabprevious<cr>
 map <c-n> :tabnext<cr>
 map <F2> ggVG"+Y
 map ;<F2> ggVG"+P
-"map <C-S-c> "+Y 
+nnoremap <F12> "=strftime("%a %b %d %R %Z %Y")<cr>gP
+inoremap <F12> <c-r>=strftime("%a %b %d %R %Z %Y")<cr>
+"map <C-S-c> "+YThu Sep 10 20:59 CST 2015 
 "map <C-S-v> "+P 
 "map ;/ <esc>:s/^.*$/\/* & *\/<cr>:noh<cr>
 "map ;? <esc>:s/^\(<tab>*\)\/\* \(.*\) \*\/\(.*\)/\1\2\3/<cr>:noh<cr>
@@ -189,8 +195,6 @@ autocmd BufReadPost *
   \   exe "normal! g'\"" |
   \ endif
 
-set cursorline
-
 """"""""""""""""""""""
 " Powerline Plugin
 """"""""""""""""""""""
@@ -199,3 +203,13 @@ set laststatus=2
 set t_Co=256
 let g:Powerline_symbols = 'unicode'
 "set encoding=utf8
+
+""""""""""""""""""""""
+" Powerline Plugin
+""""""""""""""""""""""
+"set ts=2 sw=2 et
+let g:indent_guides_start_level = 2
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size = 1
+hi IndentGuidesOdd ctermbg=lightgrey
+hi IndentGuidesEven ctermbg=darkgrey
