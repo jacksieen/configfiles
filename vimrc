@@ -1,9 +1,9 @@
 " vimrc ~/.vimrc
 " Author:	Lykling
 " Version:	3.0.0
+" Update:	Thu Sep 10 20:50:37 CST 2015
 " Usage: 	copy this file to home directory
-" Notes:	Modified by jacksieen
-" Update:	Thu Sep 10 21:04 CST 2015
+" Notes:	Modified a little by jacksieen, 2nd, Sept, 2013
 
 autocmd! BufWritePost *.vimrc source $HOME/.vimrc
 
@@ -26,24 +26,25 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
+"Plugin 'L9'
 " Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
+"Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
 "Plugin 'file:///home/jackson/.vim/'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
 " Powerline Plugin
-Plugin 'https://github.com/Lokaltog/vim-powerline.git'
+"Plugin 'https://github.com/powerline/powerline.git'
+Plugin 'bling/vim-airline'
 " Indent Guides
 Plugin 'https://github.com/nathanaelkane/vim-indent-guides'
-Plugin 'http://github.com/tpope/vim-pathogen'
+"Plugin 'http://github.com/tpope/vim-pathogen'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -188,28 +189,29 @@ imap <> <><left>
 
 
 """"""""""""""""""""""
-" Buff && Cursor
+" Statusline Plugin
+""""""""""""""""""""""
+"set guifont=PowerlineSymbols\ for\ Powerline
+set laststatus=2
+set t_Co=256
+"let g:Powerline_symbols = 'unicode'
+"let g:airline_powerline_fonts=0
+"set encoding=utf8
+let g:airline_left_sep = '>'
+"let g:airline_left_sep = '▶'
+let g:airline_right_sep = '<'
+"let g:airline_right_sep = '◀'
+let g:airline#extensions#whitespace#enabled = 0
+
+""""""""""""""""""""""
+" Buff && Cursor && Highlight
 """"""""""""""""""""""
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line ("'\"") <= line("$") |
   \   exe "normal! g'\"" |
   \ endif
 
-""""""""""""""""""""""
-" Powerline Plugin
-""""""""""""""""""""""
-set guifont=PowerlineSymbols\ for\ Powerline
-set laststatus=2
-set t_Co=256
-let g:Powerline_symbols = 'unicode'
-"set encoding=utf8
+set cursorline
+hi CursorLine cterm=NONE ctermbg=darkgrey guibg=darkgrey
+hi Comment cterm=NONE ctermfg=19
 
-""""""""""""""""""""""
-" Powerline Plugin
-""""""""""""""""""""""
-"set ts=2 sw=2 et
-let g:indent_guides_start_level = 2
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_guide_size = 1
-hi IndentGuidesOdd ctermbg=lightgrey
-hi IndentGuidesEven ctermbg=darkgrey
