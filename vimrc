@@ -1,9 +1,9 @@
 " vimrc ~/.vimrc
 " Author:	Lykling
 " Version:	3.0.0
-" Update:	Thu Sep 10 20:50:37 CST 2015
+" Update:	Mon Sep 21 17:44 CST 2015
 " Usage: 	copy this file to home directory
-" Notes:	Modified a little by jacksieen, 2nd, Sept, 2013
+" Notes:	Modified by jacksieen
 
 autocmd! BufWritePost *.vimrc source $HOME/.vimrc
 
@@ -51,15 +51,11 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+
+""""""""""""""""""""""""
+" main configuration
+""""""""""""""""""""""""
+
 
 colorscheme elflord
 "colorscheme default
@@ -191,10 +187,8 @@ imap <> <><left>
 """"""""""""""""""""""
 " Statusline Plugin
 """"""""""""""""""""""
-"set guifont=PowerlineSymbols\ for\ Powerline
 set laststatus=2
 set t_Co=256
-"let g:Powerline_symbols = 'unicode'
 "let g:airline_powerline_fonts=0
 "set encoding=utf8
 let g:airline_left_sep = '>'
