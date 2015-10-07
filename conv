@@ -1,0 +1,27 @@
+#!/bin/sh
+
+if [ $# -eq 0 ]
+then 
+  printf "No Args found.\n"
+  exit 127
+fi
+
+printf "\e[1mThe file processing contains:\e[0m\n"
+sleep 1
+cat $1
+if [ $? == 0 ]
+then
+  printf "\e[1m\e[32mIS THIS OK?\e[0m\n"
+  for i in 5 4 3 2 1
+  do
+    printf "\e[1m\e[31m%d\e[0m " $i
+    sleep 1
+  done
+  printf "\n"
+else
+  printf "File %s does not exist.\n" $1
+  exit 127
+fi
+sed "s/    /\t/g" < $1 > $1.tmp
+sed "s/\t/  /g" < $1.tmp > $1
+rm $1.tmp
