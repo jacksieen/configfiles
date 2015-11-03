@@ -2,7 +2,7 @@
 copy_file () {
   if [ -e $1 ]
   then
-    echo cp $1 ~/.$1
+    cp $1 ~/.$1
   fi
 }
 
