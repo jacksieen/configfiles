@@ -133,7 +133,7 @@ if filereadable("Makefile")
 	map <F9> :!make -s<cr>
     map <F11> :!make -n<cr>
 else
-	autocmd filetype c map <buffer> <F9> :!gcc -lm -g % -Wall -o %:r<cr>
+	autocmd filetype c map <buffer> <F9> :!gcc -lm -g -std=c99 % -Wall -o %:r<cr>
 	autocmd filetype cpp map <buffer> <F9> :!g++ -lm -g % -Wall -o %:r<cr>
 	autocmd filetype pascal map <buffer> <F9> :!gpc  -g % -Wall -o%:r<cr>
 	autocmd filetype c,cpp,pascal map <buffer> ;<F9> :!./%:r < %:r.tdat<cr>
@@ -144,7 +144,7 @@ else
 	autocmd filetype java map <buffer> <F9> :!javac %<cr>
 endif
 
-autocmd filetype c map <buffer> <F10> :!gcc -lm -g % -Wall -o %:r;./%:r<cr>
+autocmd filetype c map <buffer> <F10> :!gcc -lm -g -std=c99 % -Wall -o %:r;./%:r<cr>
 autocmd filetype cpp map <buffer> <F10> :!g++ -lm -g % -Wall -o %:r;./%:r<cr>
 autocmd filetype java map <buffer> <F10> :!javac %;java %:r<cr>
 
