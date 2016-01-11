@@ -79,8 +79,7 @@ export PATH="$PATH:/home/jackson/bin/"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias tmux="tmux -2"
-
+TERM=xterm-256color
 # for mdf theme
 
 RPROMPT='%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}% %{$fg[cyan]%}[%T]%{$reset_color%}'
