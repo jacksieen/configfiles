@@ -1,10 +1,14 @@
-
-
-
-
+""""""""""""""""""""""""""""""""""""""""""""
+"
+"  Last updated on Tue, 19 Apr 2016 16:23:46 +0800
+"
+"
+""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
 filetype off
 
+
+" for plugins "
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin('~/.vim/')
 
@@ -27,6 +31,9 @@ set fenc=utf-8
 set fencs=utf-8,gb18030,gb2312,gbk,cp936,ucs-bom
 
 syntax on
+set comments=://
+set comments=:s1:/*,mb:*,ex0:/
+set tags=./tags,./../tags,./**/tags
 
 set ai
 set si
@@ -38,13 +45,14 @@ set hlsearch
 set incsearch
 set hls is
 
-set softtabstop=2
-set shiftwidth=2
-set cindent shiftwidth=2
-set autoindent shiftwidth=2
+set softtabstop=4
+set shiftwidth=4
+set cindent shiftwidth=4
+set autoindent shiftwidth=4
 set mouse=h
-set bs=2
+set backspace=2
 set et
+
 
 set foldmethod=indent
 set foldlevel=1
@@ -110,12 +118,13 @@ autocmd filetype java map <buffer> <F10> :!javac %;java %:r<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <c-p> :tabprevious<cr>
 map <c-n> :tabnext<cr>
-nnoremap <F12> "=strftime("%a %b %d %R %Z %Y")<cr>gP
-inoremap <F12> <c-r>=strftime("%a %b %d %R %Z %Y")<cr>
+nnoremap <F12> "=strftime("%a, %d %b %Y %H:%M:%S %z")<cr>gP
+inoremap <F12> <c-r>=strftime("%a, %d %b %Y %H:%M:%S %z")<cr>
 map <c-h> <c-w>h
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
+map <F4> :noh<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Pairs matching
@@ -158,7 +167,26 @@ inoremap " <c-r>=SamePair('"')<CR>
 inoremap ' <c-r>=SamePair("'")<CR>
 inoremap ` <c-r>=SamePair('`')<CR>
 
+""""""""""""""""""""""""""""""""""""""""""
+" Per filetype setting
+""""""""""""""""""""""""""""""""""""""""""
+autocmd filetype c,cpp,java,javascript set sts=2
+autocmd filetype python set sts=4 | call CTitle()
+"autocmd BufNewFile * exec ";call CTitle()"
+func! CTitle()
+    "set python env and coding for python file"
+    if &ft=='python'
+        call append(0,"#!/usr/bin/env python")
+        call append(1,"# coding=utf8")
+
+    endif
+endfunc
+
+
 
 set cursorline
+" set cursorline color "
 "hi CursorLine cterm=NONE ctermbg=darkgrey guibg=darkgrey
+"hi CursorLine cterm=NONE ctermbg=NONE guibg=NONE
+" set comment color under color theme"
 hi Comment cterm=NONE ctermfg=19
