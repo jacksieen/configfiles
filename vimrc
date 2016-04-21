@@ -1,6 +1,6 @@
 """"""""""""""""""""""""""""""""""""""""""""
 "
-"  Last updated on Wed, 20 Apr 2016 18:38:05 +0800
+"  Last updated on Thu, 21 Apr 2016 16:51:20 +0800
 "
 "
 """"""""""""""""""""""""""""""""""""""""""""
@@ -16,6 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
 
 call vundle#end()
+filetype plugin indent on
 
 """""""""""""""""""""""""""""""""""""""""""
 " Base setting
