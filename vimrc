@@ -1,6 +1,6 @@
 """"""""""""""""""""""""""""""""""""""""""""
 "
-"  Last updated on Thu, 21 Apr 2016 16:51:20 +0800
+"  Last updated on Fri, 22 Apr 2016 17:01:41 +0800
 "
 "
 """"""""""""""""""""""""""""""""""""""""""""
@@ -189,7 +189,8 @@ autocmd filetype xml,hmtl,htmldjango inoremap > <c-r>=ClosePair('>')<CR>
 " Per filetype setting
 """"""""""""""""""""""""""""""""""""""""""
 autocmd filetype c,cpp,java,javascript set sts=2
-autocmd filetype python set sts=4 | call CTitle()
+autocmd filetype python set sts=4
+autocmd BufNewFile * call CTitle()
 "autocmd BufNewFile * exec ";call CTitle()"
 func! CTitle()
     "set python env and coding for python file"
