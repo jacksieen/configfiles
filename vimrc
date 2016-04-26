@@ -1,6 +1,6 @@
 """"""""""""""""""""""""""""""""""""""""""""
 "
-"  Last updated on Fri, 22 Apr 2016 17:01:41 +0800
+"  Last updated on Tue, 26 Apr 2016 17:55:56 +0800
 "
 "
 """"""""""""""""""""""""""""""""""""""""""""
@@ -183,13 +183,16 @@ inoremap " <c-r>=SPair('"')<CR>
 inoremap ' <c-r>=SPair("'")<CR>
 inoremap ` <c-r>=SPair('`')<CR>
 
-autocmd filetype xml,hmtl,htmldjango inoremap < <c-r>=LPair('<','>')<CR>
-autocmd filetype xml,hmtl,htmldjango inoremap > <c-r>=ClosePair('>')<CR>
 """"""""""""""""""""""""""""""""""""""""""
 " Per filetype setting
 """"""""""""""""""""""""""""""""""""""""""
-autocmd filetype c,cpp,java,javascript set sts=2
+autocmd filetype c,cpp,java,javascript set sts=2 sw=2
 autocmd filetype python set sts=4
+
+autocmd filetype xml,hmtl,htmldjango inoremap < <c-r>=LPair('<','>')<CR>
+autocmd filetype xml,hmtl,htmldjango inoremap > <c-r>=ClosePair('>')<CR>
+autocmd filetype c,cpp,java,css,javascript.php imap <buffer> {} {<cr>}<up><end><cr>
+
 autocmd BufNewFile * call CTitle()
 "autocmd BufNewFile * exec ";call CTitle()"
 func! CTitle()
