@@ -1,6 +1,6 @@
 """"""""""""""""""""""""""""""""""""""""""""
 "
-"  Last updated on Tue, 26 Apr 2016 17:55:56 +0800
+"  Last updated on Wed, 27 Jul 2016 16:17:03 +0800
 "
 "
 """"""""""""""""""""""""""""""""""""""""""""
@@ -101,6 +101,7 @@ if filereadable("Makefile")
 else
     autocmd filetype c map <buffer> <F9> :!gcc -lm -g -std=c99 % -Wall -o %:r<cr>
     autocmd filetype cpp map <buffer> <F9> :!g++ -lm -g % -Wall -o %:r<cr>
+    autocmd filetype go map <buffer> <F9> :!go build %<cr>
     autocmd filetype pascal map <buffer> <F9> :!gpc  -g % -Wall -o%:r<cr>
     autocmd filetype c,cpp,pascal map <buffer> ;<F9> :!./%:r < %:r.tdat<cr>
     autocmd filetype python map <buffer> <F9> :!python %<cr>
@@ -113,6 +114,7 @@ endif
 autocmd filetype c map <buffer> <F10> :!gcc -lm -g -std=c99 % -Wall -o %:r;./%:r<cr>
 autocmd filetype cpp map <buffer> <F10> :!g++ -lm -g % -Wall -o %:r;./%:r<cr>
 autocmd filetype java map <buffer> <F10> :!javac %;java %:r<cr>
+autocmd filetype go map <buffer> <F10> :!go run %<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keymaps
@@ -191,7 +193,7 @@ autocmd filetype python set sts=4
 
 autocmd filetype xml,hmtl,htmldjango inoremap < <c-r>=LPair('<','>')<CR>
 autocmd filetype xml,hmtl,htmldjango inoremap > <c-r>=ClosePair('>')<CR>
-autocmd filetype c,cpp,java,css,javascript.php imap <buffer> {} {<cr>}<up><end><cr>
+autocmd filetype c,go,cpp,java,css,javascript.php imap <buffer> {} {<cr>}<up><end><cr>
 
 autocmd BufNewFile * call CTitle()
 "autocmd BufNewFile * exec ";call CTitle()"
