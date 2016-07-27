@@ -9,7 +9,7 @@ filetype off
 
 
 " for plugins "
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/Vundle.vim
 call vundle#begin('~/.vim/')
 
 Plugin 'VundleVim/Vundle.vim'

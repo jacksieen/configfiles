@@ -25,8 +25,27 @@ update_zsh () {
   fi
 }
 
+install_vundle() {
+  VUNDLE=~/.vim/Vundle.vim/
+    if [ -e $VUNDLE ]
+    then
+      if [ -e $VUNDLE/.git ]
+      then
+        echo updating VundleVim
+        cd $VUNDLE
+        git pull origin master > /dev/null 2>&1
+        cd - > /dev/null 2>&1
+      else
+        echo wrong with VundleVim
+      fi
+    else
+      echo installing VundleVim
+      git clone https://github.com/VundleVim/Vundle.vim $VUNDLE > /dev/null 2>&1
+      echo "** run 'PluginInstall' at vim cmd **"
+    fi
+}
 
-if [ $# -eq 0 ] 
+if [ $# -eq 0 ]
 then
   echo "usage: install.sh all|vimrc|tmux|zsh"
 else
@@ -35,6 +54,7 @@ else
     case $1 in
       vimrc)
         copy_file vimrc
+        install_vundle
         ;;
       tmux)
         copy_file tmux.conf
