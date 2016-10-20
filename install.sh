@@ -65,6 +65,7 @@ else
         ;;
       all)
         copy_file vimrc
+        install_vundle
         copy_file tmux.conf
         copy_file zshrc
         update_zsh

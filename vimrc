@@ -193,7 +193,7 @@ autocmd filetype python set sts=4
 
 autocmd filetype xml,hmtl,htmldjango inoremap < <c-r>=LPair('<','>')<CR>
 autocmd filetype xml,hmtl,htmldjango inoremap > <c-r>=ClosePair('>')<CR>
-autocmd filetype c,go,cpp,java,css,javascript.php imap <buffer> {} {<cr>}<up><end><cr>
+autocmd filetype c,go,cpp,java,css,javascript,php imap <buffer> {} {<cr>}<up><end><cr>
 
 autocmd BufNewFile * call CTitle()
 "autocmd BufNewFile * exec ";call CTitle()"
