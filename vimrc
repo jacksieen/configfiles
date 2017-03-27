@@ -80,8 +80,8 @@ let g:airline#ectension#whitespace#enabled = 0
 " For Comments
 """""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufRead,BufNewFile *  if &ft=='html' | set ft=htmldjango | endif
-autocmd filetype c,cpp,java,javascript,css,php map ;/ :s/\( *<tab>*\)\(.*\)/\1\/* \2 *\//<cr>:noh<cr>
-autocmd filetype c,cpp,java,javascript,css,php map ;? :s/\/\* \(.*\) \*\//\1/<cr>:noh<cr>
+autocmd filetype c,cpp,go,java,javascript,css,php map ;/ :s/\( *<tab>*\)\(.*\)/\1\/* \2 *\//<cr>:noh<cr>
+autocmd filetype c,cpp,go,java,javascript,css,php map ;? :s/\/\* \(.*\) \*\//\1/<cr>:noh<cr>
 autocmd filetype xml,html,htmldjango map <buffer> ;/ :s/\( *<tab>*\)\(.*\)/\1<!-- \2 -->/<cr>:noh<cr>
 autocmd filetype xml,html,htmldjango map <buffer> ;? :s/<!-- \(.*\) -->/\1/<cr>:noh<cr>
 autocmd filetype sh,python map <buffer> ;/ :s/\( *<tab>*\)/\1#/<cr>:noh<cr>
@@ -91,7 +91,7 @@ autocmd filetype vim map <buffer> ;? :s/\( *<tab>*\)"/\1/<cr>:noh<cr>
 autocmd filetype tex map <buffer> ;/ :s/\(.*\)/\%\1/<cr>:noh<cr>
 autocmd filetype tex map <buffer> ;? :s/^%\(.*\)/\1/<cr>:noh<cr>
 "autocmd filetype c,cpp,java,css,javascript.php imap <buffer> {} {<cr>}<up><end><cr>
-autocmd filetype c,cpp,java,css,javascript,php imap <buffer> ;/ /*  */<left><left><left>
+autocmd filetype c,cpp,go,java,css,javascript,php imap <buffer> ;/ /*  */<left><left><left>
 """"""""""""""""""""""
 " program test
 """"""""""""""""""""""
@@ -213,4 +213,4 @@ set cursorline
 "hi CursorLine cterm=NONE ctermbg=darkgrey guibg=darkgrey
 "hi CursorLine cterm=NONE ctermbg=NONE guibg=NONE
 " set comment color under color theme"
-hi Comment cterm=NONE ctermfg=19
+"hi Comment cterm=NONE ctermfg=19
