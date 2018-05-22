@@ -1,6 +1,6 @@
 """"""""""""""""""""""""""""""""""""""""""""
 "
-"  Last updated on Wed, 27 Jul 2016 16:17:03 +0800
+"  Last updated on Tue, 22 May 2018 15:34:56 +0800
 "
 "
 """"""""""""""""""""""""""""""""""""""""""""
@@ -62,6 +62,14 @@ set foldnestmax=2
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 set fileformats=unix,dos
+
+"""""""""""""""""""""""""""
+" insert mode moving
+"""""""""""""""""""""""""""
+inoremap <C-j> <down>
+inoremap <C-k> <up>
+inoremap <C-h> <left>
+inoremap <C-l> <right>
 
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line ("'\"") <= line("$") |
