@@ -209,6 +209,8 @@ endfunc
 
 
 set cursorline
+set colorcolumn=80
+highlight ColorColumn ctermbg=242 guibg=darkgrey
 " set cursorline color "
 "hi CursorLine cterm=NONE ctermbg=darkgrey guibg=darkgrey
 "hi CursorLine cterm=NONE ctermbg=NONE guibg=NONE
