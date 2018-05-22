@@ -80,18 +80,18 @@ let g:airline#ectension#whitespace#enabled = 0
 " For Comments
 """""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufRead,BufNewFile *  if &ft=='html' | set ft=htmldjango | endif
-autocmd filetype c,cpp,go,java,javascript,css,php map ;/ :s/\( *<tab>*\)\(.*\)/\1\/* \2 *\//<cr>:noh<cr>
-autocmd filetype c,cpp,go,java,javascript,css,php map ;? :s/\/\* \(.*\) \*\//\1/<cr>:noh<cr>
-autocmd filetype xml,html,htmldjango map <buffer> ;/ :s/\( *<tab>*\)\(.*\)/\1<!-- \2 -->/<cr>:noh<cr>
-autocmd filetype xml,html,htmldjango map <buffer> ;? :s/<!-- \(.*\) -->/\1/<cr>:noh<cr>
-autocmd filetype sh,python map <buffer> ;/ :s/\( *<tab>*\)/\1#/<cr>:noh<cr>
-autocmd filetype sh,python map <buffer> ;? :s/\( *<tab>*\)#/\1/<cr>:noh<cr>
-autocmd filetype vim map <buffer> ;/ :s/\( *<tab>*\)/\1"/<cr>:noh<cr>
-autocmd filetype vim map <buffer> ;? :s/\( *<tab>*\)"/\1/<cr>:noh<cr>
-autocmd filetype tex map <buffer> ;/ :s/\(.*\)/\%\1/<cr>:noh<cr>
-autocmd filetype tex map <buffer> ;? :s/^%\(.*\)/\1/<cr>:noh<cr>
+autocmd filetype * c,cpp,go,java,javascript,css,php map ;/ :s/\( *<tab>*\)\(.*\)/\1\/* \2 *\//<cr>:noh<cr>
+autocmd filetype * c,cpp,go,java,javascript,css,php map ;? :s/\/\* \(.*\) \*\//\1/<cr>:noh<cr>
+autocmd filetype * xml,html,htmldjango map <buffer> ;/ :s/\( *<tab>*\)\(.*\)/\1<!-- \2 -->/<cr>:noh<cr>
+autocmd filetype * xml,html,htmldjango map <buffer> ;? :s/<!-- \(.*\) -->/\1/<cr>:noh<cr>
+autocmd filetype * sh,python map <buffer> ;/ :s/\( *<tab>*\)/\1#/<cr>:noh<cr>
+autocmd filetype * sh,python map <buffer> ;? :s/\( *<tab>*\)#/\1/<cr>:noh<cr>
+autocmd filetype * vim map <buffer> ;/ :s/\( *<tab>*\)/\1"/<cr>:noh<cr>
+autocmd filetype * vim map <buffer> ;? :s/\( *<tab>*\)"/\1/<cr>:noh<cr>
+autocmd filetype * tex map <buffer> ;/ :s/\(.*\)/\%\1/<cr>:noh<cr>
+autocmd filetype * tex map <buffer> ;? :s/^%\(.*\)/\1/<cr>:noh<cr>
 "autocmd filetype c,cpp,java,css,javascript.php imap <buffer> {} {<cr>}<up><end><cr>
-autocmd filetype c,cpp,go,java,css,javascript,php imap <buffer> ;/ /*  */<left><left><left>
+autocmd filetype * c,cpp,go,java,css,javascript,php imap <buffer> ;/ /*  */<left><left><left>
 """"""""""""""""""""""
 " program test
 """"""""""""""""""""""
@@ -99,22 +99,22 @@ if filereadable("Makefile")
     map <F9> :!make -s<cr>
     map <F11> :!make -n<cr>
 else
-    autocmd filetype c map <buffer> <F9> :!gcc -lm -g -std=c99 % -Wall -o %:r<cr>
-    autocmd filetype cpp map <buffer> <F9> :!g++ -lm -g % -Wall -o %:r<cr>
-    autocmd filetype go map <buffer> <F9> :!go build %<cr>
-    autocmd filetype pascal map <buffer> <F9> :!gpc  -g % -Wall -o%:r<cr>
-    autocmd filetype c,cpp,pascal map <buffer> ;<F9> :!./%:r < %:r.tdat<cr>
-    autocmd filetype python map <buffer> <F9> :!python %<cr>
-    autocmd filetype expect map <buffer> <F9> :!expect %<cr>
-    autocmd filetype sh map <buffer> <F9> :!sh %<cr>
-    autocmd filetype asm map <buffer> <F9> :!nasm % -o%:r<cr>
-    autocmd filetype java map <buffer> <F9> :!javac %<cr>
+    autocmd filetype * c map <buffer> <F9> :!gcc -lm -g -std=c99 % -Wall -o %:r<cr>
+    autocmd filetype * cpp map <buffer> <F9> :!g++ -lm -g % -Wall -o %:r<cr>
+    autocmd filetype * go map <buffer> <F9> :!go build %<cr>
+    autocmd filetype * pascal map <buffer> <F9> :!gpc  -g % -Wall -o%:r<cr>
+    autocmd filetype * c,cpp,pascal map <buffer> ;<F9> :!./%:r < %:r.tdat<cr>
+    autocmd filetype * python map <buffer> <F9> :!python %<cr>
+    autocmd filetype * expect map <buffer> <F9> :!expect %<cr>
+    autocmd filetype * sh map <buffer> <F9> :!sh %<cr>
+    autocmd filetype * asm map <buffer> <F9> :!nasm % -o%:r<cr>
+    autocmd filetype * java map <buffer> <F9> :!javac %<cr>
 endif
 
-autocmd filetype c map <buffer> <F10> :!gcc -lm -g -std=c99 % -Wall -o %:r;./%:r<cr>
-autocmd filetype cpp map <buffer> <F10> :!g++ -lm -g % -Wall -o %:r;./%:r<cr>
-autocmd filetype java map <buffer> <F10> :!javac %;java %:r<cr>
-autocmd filetype go map <buffer> <F10> :!go run %<cr>
+autocmd filetype * c map <buffer> <F10> :!gcc -lm -g -std=c99 % -Wall -o %:r;./%:r<cr>
+autocmd filetype * cpp map <buffer> <F10> :!g++ -lm -g % -Wall -o %:r;./%:r<cr>
+autocmd filetype * java map <buffer> <F10> :!javac %;java %:r<cr>
+autocmd filetype * go map <buffer> <F10> :!go run %<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keymaps
@@ -188,12 +188,12 @@ inoremap ` <c-r>=SPair('`')<CR>
 """"""""""""""""""""""""""""""""""""""""""
 " Per filetype setting
 """"""""""""""""""""""""""""""""""""""""""
-autocmd filetype c,cpp,sh,go,java,javascript set sts=2 sw=2
-autocmd filetype python set sts=4
+autocmd filetype * c,cpp,sh,go,java,javascript set sts=2 sw=2
+autocmd filetype * python set sts=4
 
-autocmd filetype xml,hmtl,htmldjango inoremap < <c-r>=LPair('<','>')<CR>
-autocmd filetype xml,hmtl,htmldjango inoremap > <c-r>=ClosePair('>')<CR>
-autocmd filetype c,go,cpp,java,css,javascript,php imap <buffer> {} {<cr>}<up><end><cr>
+autocmd filetype * xml,hmtl,htmldjango inoremap < <c-r>=LPair('<','>')<CR>
+autocmd filetype * xml,hmtl,htmldjango inoremap > <c-r>=ClosePair('>')<CR>
+autocmd filetype * c,go,cpp,java,css,javascript,php imap <buffer> {} {<cr>}<up><end><cr>
 
 autocmd BufNewFile * call CTitle()
 "autocmd BufNewFile * exec ";call CTitle()"
