@@ -47,7 +47,7 @@ ZSH_THEME="mrtazz"
 # Add wisely, as too many plugins slow down shell startup.
 PLUGINS="git"
 command -v tmux > /dev/null 2>&1 || PLUGINS=$PLUFINS" tmux"
-plugins=(PLUGINS)
+plugins=($PLUGINS)
 
 source $ZSH/oh-my-zsh.sh
 
