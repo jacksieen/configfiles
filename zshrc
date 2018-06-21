@@ -46,7 +46,7 @@ ZSH_THEME="mrtazz"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 PLUGINS="git"
-command -v tmux > /dev/null 2>&1 || PLUGINS=$PLUFINS" tmux"
+command -v tmux > /dev/null 2>&1 || PLUGINS=$PLUGINS" tmux"
 plugins=($PLUGINS)
 
 source $ZSH/oh-my-zsh.sh
