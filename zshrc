@@ -45,9 +45,14 @@ ZSH_THEME="mrtazz"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-PLUGINS="git"
-command -v tmux > /dev/null 2>&1 || PLUGINS=$PLUFINS" tmux"
-plugins=(PLUGINS)
+PLUGINS=git
+command -v tmux > /dev/null 2>&1 && PLUGINS=($PLUGINS tmux)
+plugins=($PLUGINS)
+EPREFIX="/home/ramuz/prefix"
+
+if [[ ${SHELL#${EPREFIX}} == ${SHELL} ]] ; then
+$HOME/prefix/startprefix
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,3 +90,5 @@ TERM=xterm-256color
 # for mdf theme
 
 RPROMPT='%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}% %{$fg[cyan]%}[%T]%{$reset_color%}'
+
+
