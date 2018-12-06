@@ -1,6 +1,6 @@
 """"""""""""""""""""""""""""""""""""""""""""
 "
-"  Last updated on Wed, 27 Jul 2016 16:17:03 +0800
+"  Last updated on Tue, 22 May 2018 15:34:56 +0800
 "
 "
 """"""""""""""""""""""""""""""""""""""""""""
@@ -14,6 +14,9 @@ call vundle#begin('~/.vim/')
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
+Plugin 'Valloric/YouCompleteMe'
+"Plugin 'davidhalter/jedi-vim'
+Plugin 'ervandew/supertab'
 
 call vundle#end()
 filetype plugin indent on
@@ -63,17 +66,29 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 set fileformats=unix,dos
 
+"""""""""""""""""""""""""""
+" insert mode moving
+"""""""""""""""""""""""""""
+inoremap <C-j> <down>
+inoremap <C-k> <up>
+inoremap <C-h> <left>
+inoremap <C-l> <right>
+
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line ("'\"") <= line("$") |
   \   exe "normal! g'\"" |
   \ endif
 
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" For plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""
 
 set laststatus=2
 set t_Co=256
-let g:airline_left_sep = '>'
-let g:airline_right_sep = '<'
-let g:airline#ectension#whitespace#enabled = 0
+"let g:airline_left_sep = '>'
+"let g:airline_right_sep = '<'
+"let g:airline#ectension#whitespace#enabled = 0
+"let g:jedi#completions_command = "<C-J>"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -191,6 +206,7 @@ inoremap ` <c-r>=SPair('`')<CR>
 autocmd filetype c,cpp,sh,go,java,javascript set sts=2 sw=2
 autocmd filetype python set sts=4
 
+autocmd filetype vim imap <buffer> " "
 autocmd filetype xml,hmtl,htmldjango inoremap < <c-r>=LPair('<','>')<CR>
 autocmd filetype xml,hmtl,htmldjango inoremap > <c-r>=ClosePair('>')<CR>
 autocmd filetype c,go,cpp,java,css,javascript,php imap <buffer> {} {<cr>}<up><end><cr>
@@ -207,8 +223,9 @@ func! CTitle()
 endfunc
 
 
-
 set cursorline
+set colorcolumn=80
+highlight ColorColumn ctermbg=242 guibg=darkgrey
 " set cursorline color "
 "hi CursorLine cterm=NONE ctermbg=darkgrey guibg=darkgrey
 "hi CursorLine cterm=NONE ctermbg=NONE guibg=NONE
