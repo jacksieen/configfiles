@@ -1,0 +1,7 @@
+dev-lang/python sqlite
+
+*/* PYTHON_TARGETS: python3_7 python2_7
+*/* PYTHON_SINGLE_TARGET: python3_7
+#dev-lang/pyhton PYTHON_TARGETS: python3_7
+
+app-editors/vim python
