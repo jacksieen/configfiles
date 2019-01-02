@@ -1,6 +1,6 @@
 """"""""""""""""""""""""""""""""""""""""""""
 "
-"  Last updated on Tue, 22 May 2018 15:34:56 +0800
+"  Last updated on Wed, 02 Jan 2019 17:01:04 +0800
 "
 "
 """"""""""""""""""""""""""""""""""""""""""""
@@ -8,15 +8,33 @@ set nocompatible
 filetype off
 
 
-" for plugins "
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" For plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/Vundle.vim
 call vundle#begin('~/.vim/')
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
+Plugin 'Valloric/YouCompleteMe'
+"Plugin 'davidhalter/jedi-vim'
+Plugin 'ervandew/supertab'
 
 call vundle#end()
 filetype plugin indent on
+
+set laststatus=2
+set t_Co=256
+"let g:airline_left_sep = '>'
+"let g:airline_right_sep = '<'
+"let g:airline#ectension#whitespace#enabled = 0
+"let g:jedi#completions_command = "<C-J>"
+set completeopt=menu,menuone      "below 2 lines disable pop-up window
+let g:ycm_add_preview_to_completeopt = 0
+let g:SuperTabDefaultCompletionType="context"
+let g:ycm_key_list_previous_completion=['<S-TAB>']
+let g:ycm_key_list_select_completion=['<TAB>']
+let g:ycm_key_list_stop_completion = ['<CR>', 'ESC']
 
 """""""""""""""""""""""""""""""""""""""""""
 " Base setting
@@ -75,13 +93,6 @@ autocmd BufReadPost *
   \ if line("'\"") > 0 && line ("'\"") <= line("$") |
   \   exe "normal! g'\"" |
   \ endif
-
-
-set laststatus=2
-set t_Co=256
-let g:airline_left_sep = '>'
-let g:airline_right_sep = '<'
-let g:airline#ectension#whitespace#enabled = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -199,6 +210,7 @@ inoremap ` <c-r>=SPair('`')<CR>
 autocmd filetype c,cpp,sh,go,java,javascript set sts=2 sw=2
 autocmd filetype python set sts=4
 
+autocmd filetype vim imap <buffer> " "
 autocmd filetype xml,hmtl,htmldjango inoremap < <c-r>=LPair('<','>')<CR>
 autocmd filetype xml,hmtl,htmldjango inoremap > <c-r>=ClosePair('>')<CR>
 autocmd filetype c,go,cpp,java,css,javascript,php imap <buffer> {} {<cr>}<up><end><cr>
@@ -213,7 +225,6 @@ func! CTitle()
 
     endif
 endfunc
-
 
 
 set cursorline
