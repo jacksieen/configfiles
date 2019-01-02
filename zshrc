@@ -55,10 +55,10 @@ source $ZSH/oh-my-zsh.sh
 
 #export PATH="/usr/local/bin:/usr/bin:/bin:/opt/bin:/usr/x86_64-pc-linux-gnu/gcc-bin/4.7.3"
 # export MANPATH="/usr/local/man:$MANPATH"
-export PATH="$PATH:$HOME/bin/"
+#export PATH="$PATH:$HOME/bin/"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -85,3 +85,6 @@ TERM=xterm-256color
 # for mdf theme
 
 RPROMPT='%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}% %{$fg[cyan]%}[%T]%{$reset_color%}'
+
+export NVM_DIR="/home/ramuz/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
