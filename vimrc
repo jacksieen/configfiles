@@ -15,7 +15,7 @@ set rtp+=~/.vim/Vundle.vim
 call vundle#begin('~/.vim/')
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
 Plugin 'Valloric/YouCompleteMe'
 "Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
