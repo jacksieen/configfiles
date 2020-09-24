@@ -210,7 +210,7 @@ inoremap ` <c-r>=SPair('`')<CR>
 """"""""""""""""""""""""""""""""""""""""""
 " Per filetype setting
 """"""""""""""""""""""""""""""""""""""""""
-autocmd filetype c,cpp,sh,go,java,javascript set sts=2 sw=2
+autocmd filetype c,cpp,sh,go,java,javascript,yaml set sts=2 sw=2
 autocmd filetype python set sts=4
 
 autocmd filetype vim imap <buffer> " "
